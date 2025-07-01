@@ -1,0 +1,19 @@
+# Pipeline configuration
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  lowres_dir: "data/lowres_images"
+  reports_dir: "data/reports"
+image:
+  size: [640, 480]
+  quality: 60
+qaqc:
+  temp_threshold: 40
+  depth_threshold: 10000
+  salinity_threshold: 50
+logging:
+  level: "INFO"
+  file: "pipeline.log"
+ollama:
+  model: "marine-qaqc"
+  timeout: 300

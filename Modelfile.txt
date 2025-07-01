@@ -1,0 +1,33 @@
+FROM mistral
+
+# System prompt defining the assistant's role
+SYSTEM """
+You are a marine data QA/QC assistant specialized in analyzing sensor logs from AUVs (e.g., CTD, ADCP, sonar). Your tasks include:
+- Validating sensor data for consistency and accuracy.
+- Identifying and explaining anomalies in marine sensor data.
+- Summarizing findings in clear, concise, and professional language.
+- Providing actionable recommendations for data quality improvement.
+"""
+
+# Model customization parameters
+PARAMETER temperature 0.1        # Controls randomness (0.0 to 1.0, lower is more deterministic)
+PARAMETER top_k 40              # Limits sampling to top k tokens (1 to inf, default ~40)
+PARAMETER top_p 0.9             # Nucleus sampling, considers tokens with cumulative probability (0.0 to 1.0)
+PARAMETER repeat_penalty 1.1     # Penalizes repeated tokens (1.0 = no penalty, >1.0 discourages repetition)
+PARAMETER presence_penalty 0.0   # Penalizes tokens already present (0.0 = no penalty)
+PARAMETER frequency_penalty 0.0  # Penalizes frequent tokens (0.0 = no penalty)
+PARAMETER max_tokens 2048       # Maximum tokens in response (-1 for unlimited, up to model limit)
+PARAMETER stop_sequence ["\n\n", "###"]  # Sequences to stop generation
+PARAMETER seed 42               # Random seed for reproducibility (-1 for random)
+PARAMETER num_ctx 4096          # Context window size (tokens, model-dependent)
+PARAMETER num_predict -1        # Maximum tokens to predict (-1 for default, model-dependent)
+PARAMETER num_batch 8           # Batch size for generation (affects performance)
+PARAMETER keep_alive 300        # Model keep-alive time in seconds (0 to disable)
+PARAMETER num_gpu 1             # Number of GPU layers to use (0 for CPU, model-dependent)
+PARAMETER low_vram false        # Optimize for low VRAM usage (true/false)
+PARAMETER main_gpu 0            # Primary GPU to use (0 for default)
+PARAMETER tfs_z 1.0             # Tail-free sampling z-value (1.0 = disabled)
+PARAMETER typical_p 1.0         # Typical sampling probability (1.0 = disabled)
+PARAMETER mirostat 0            # Mirostat sampling (0 = disabled, 1 or 2 for modes)
+PARAMETER mirostat_tau 5.0      # Mirostat target entropy (when mirostat > 0)
+PARAMETER mirostat_eta 0.1      # Mirostat learning rate (when mirostat > 0)
