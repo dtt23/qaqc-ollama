@@ -9,7 +9,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def compress_image(input_path: str, output_path: str, size: tuple = (640, 480), quality: int = 60) -> bool:
     """
     Compress and resize an image.
-    
     Args:
         input_path (str): Input image path
         output_path (str): Output image path
@@ -34,7 +33,6 @@ def compress_image(input_path: str, output_path: str, size: tuple = (640, 480), 
 def batch_image_processing(input_dir: str, output_dir: str, size: tuple, quality: int) -> int:
     """
     Process all images in a directory.
-    
     Returns:
         int: Number of successfully processed images
     """

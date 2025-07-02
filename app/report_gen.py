@@ -8,7 +8,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def generate_report(summary_text: str, output_path: str, anomalies: list) -> None:
     """
     Generate a QA/QC report in Markdown format.
-    
     Args:
         summary_text (str): LLM-generated summary
         output_path (str): Output file path

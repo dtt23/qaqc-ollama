@@ -39,11 +39,9 @@ def encode_image(image_path: str) -> str:
 def analyze_with_ollama(data: str, image_path: str = None) -> str:
     """
     Analyze data and optional image using Ollama LLM.
-    
     Args:
         data (str): Input data as CSV string
         image_path (str, optional): Path to image for analysis
-    
     Returns:
         str: LLM analysis summary
     """

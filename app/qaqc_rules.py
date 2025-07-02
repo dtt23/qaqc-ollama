@@ -12,10 +12,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def apply_qaqc_rules(df: pd.DataFrame) -> list:
     """
     Apply QA/QC rules to detect anomalies in marine sensor data.
-    
     Args:
         df (pd.DataFrame): Input DataFrame
-    
     Returns:
         list: List of (column, anomalous_rows) tuples
     """

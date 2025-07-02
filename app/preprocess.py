@@ -9,11 +9,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def clean_data(file_path: str, output_path: str) -> pd.DataFrame:
     """
     Clean and validate sensor data from CSV files.
-    
     Args:
         file_path (str): Path to input CSV
         output_path (str): Path to save cleaned data
-    
     Returns:
         pd.DataFrame: Cleaned DataFrame
     """
