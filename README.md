@@ -21,7 +21,7 @@ marine_qaqc_project/
     ├── raw/               # Input CSV and image files
     ├── processed/         # Cleaned CSV data
     ├── lowrmages/     # Compressed images
-    ├── └── reports/           # Generated QA/QC reports
+    ├── reports/           # Generated QA/QC reports
 ```
 
 ## Prerequisites
