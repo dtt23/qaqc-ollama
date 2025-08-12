@@ -21,25 +21,25 @@ def apply_qaqc_rules(df: pd.DataFrame) -> list:
     try:
         # Temperature check
         for col in df.columns:
-            if 'temp' in col.lower():
-                bad = df[df[col] > config['qaqc']['temp_threshold']]
+            if 'Distance (cm)' in col.lower():
+                bad = df[df[col] > config['qaqc']['dist_threshold']]
                 if not bad.empty:
                     anomalies.append((col, bad))
                     logging.warning(f"Temperature anomalies detected in {col}: {len(bad)} rows")
             
             # Depth check
-            if 'depth' in col.lower():
-                bad = df[df[col] > config['qaqc']['depth_threshold']]
+            if 'Confidence (%)' in col.lower():
+                bad = df[df[col] > config['qaqc']['conf_threshold']]
                 if not bad.empty:
                     anomalies.append((col, bad))
                     logging.warning(f"Depth anomalies detected in {col}: {len(bad)} rows")
             
             # Salinity check
-            if 'salinity' in col.lower():
+            """if 'salinity' in col.lower():
                 bad = df[df[col] > config['qaqc']['salinity_threshold']]
                 if not bad.empty:
                     anomalies.append((col, bad))
-                    logging.warning(f"Salinity anomalies detected in {col}: {len(bad)} rows")
+                    logging.warning(f"Salinity anomalies detected in {col}: {len(bad)} rows")"""
     
     except Exception as e:
         logging.error(f"Error in QA/QC rules: {str(e)}")

@@ -47,7 +47,7 @@ def analyze_with_ollama(data: str, image_path: str = None) -> str:
     """
     try:
         prompt = f"""
-        Review this marine sensor data (CSV format) and provide a detailed QA/QC analysis:
+        Review this marine sensor data (CSV format, ignore column 1, use the date and time for timestamping and make use of the other values especially the confidence level to test the accuracy of the data) and provide a detailed QA/QC analysis:
         - Identify potential issues or anomalies
         - Suggest possible causes
         - Recommend corrective actions

@@ -8,8 +8,8 @@ image:
   size: [640, 480]
   quality: 60
 qaqc:
-  temp_threshold: 40
-  depth_threshold: 10000
+  dist_threshold: 40
+  conf_threshold: 10000
   salinity_threshold: 50
 logging:
   level: "INFO"
